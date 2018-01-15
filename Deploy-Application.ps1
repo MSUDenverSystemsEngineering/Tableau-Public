@@ -112,7 +112,7 @@ Try {
 		[string]$installPhase = 'Pre-Installation'
 
 		## Show Welcome Message, close applications if required, verify there is enough disk space to complete the install, and persist the prompt
-		Show-InstallationWelcome -CloseApps 'iexplore' -CheckDiskSpace -PersistPrompt
+		Show-InstallationWelcome -CloseApps 'tabpublic' -CheckDiskSpace -PersistPrompt
 
 		## Show Progress Message (with the default message)
 		Show-InstallationProgress
@@ -153,7 +153,7 @@ Try {
 		[string]$installPhase = 'Pre-Uninstallation'
 
 		## Show Welcome Message, close applications with a 60 second countdown before automatically closing
-		Show-InstallationWelcome -CloseApps 'iexplore' -CloseAppsCountdown 60
+		Show-InstallationWelcome -CloseApps 'tabpublic' -CloseAppsCountdown 60
 
 		## Show Progress Message (with the default message)
 		Show-InstallationProgress
@@ -204,8 +204,8 @@ Catch {
 # SIG # Begin signature block
 # MIIU4wYJKoZIhvcNAQcCoIIU1DCCFNACAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCDOEYRM/5GE0SKk
-# o4IcSitjLISuHm4RxsykP9O7kmj1EqCCD4cwggQUMIIC/KADAgECAgsEAAAAAAEv
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCB/ssecLmNmCwCm
+# 5abk3vU+VFGV/ViwuHHWY1tYz3p8Q6CCD4cwggQUMIIC/KADAgECAgsEAAAAAAEv
 # TuFS1zANBgkqhkiG9w0BAQUFADBXMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xv
 # YmFsU2lnbiBudi1zYTEQMA4GA1UECxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFs
 # U2lnbiBSb290IENBMB4XDTExMDQxMzEwMDAwMFoXDTI4MDEyODEyMDAwMFowUjEL
@@ -292,26 +292,26 @@ Catch {
 # FgNlZHUxGTAXBgoJkiaJk/IsZAEZFgltc3VkZW52ZXIxFTATBgoJkiaJk/IsZAEZ
 # FgV3aW5hZDEZMBcGA1UEAxMQd2luYWQtVk1XQ0EwMS1DQQITfwAAACITuo77mvOv
 # 9AABAAAAIjANBglghkgBZQMEAgEFAKBmMBgGCisGAQQBgjcCAQwxCjAIoAKAAKEC
-# gAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwLwYJKoZIhvcNAQkEMSIEIFy2
-# HVRQAdG7zk/pzoGBobJB1dmKdVbGGqnwc557s0upMA0GCSqGSIb3DQEBAQUABIIB
-# ABRmuY3TjRy+FeKRtWldzcWrze+lK3YIjTm/nwuNo+nn/VWuHKFG8n1WfIxmlOea
-# oS8AGgJWGZsyRbzOI9QpvAkzRf7Dq8Zj7BUyHMn19oTxS46fu57iWaZeEkheHs1u
-# ca3xM6rpqmZ7WNPzCrGxPtI9cyN/hJG5cfc/23tSc6WJwwePziLNc5NUXJRm7gPW
-# ENDXrG5hZYji6OY4/K7Z2TzZic611y2PKGSjifNTa3dO0JlIQpmlYjHt65/L/WMo
-# eUs49q4js9RtHHdlrnurmZeKlA3bREEjtWW/jgKhhjpqcz7VfGGCRAA6FuF/AHj1
-# Vpx/fjWtGFa9mrPu5yAdZ5mhggKiMIICngYJKoZIhvcNAQkGMYICjzCCAosCAQEw
+# gAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwLwYJKoZIhvcNAQkEMSIEIJZT
+# A3fWxzoP19f4IVAv/KxCR2UNw1zQBrAewLkzP/MEMA0GCSqGSIb3DQEBAQUABIIB
+# AJLd5NVdOdOfyDrtAobGWw/gG6X5HFHK8TU7kWwjg+TRidQYUyfjT4fI4WUMIurT
+# OrIjEjHi0zzhZxUZCGengWo/F3F8D6OhOz3rDiXBhWGksUrrvwIPtsYgVVmiqFfn
+# XwYs04mgHjKXN2QtYrGqbYG+YfwHarrtbw74sTG7gLN7DvrwxZ65N4wkECE9ffKh
+# xJNS8D73HmKzpx/zULKwoOCRLaqlEW0nvIc0fKu9ZiUnr8DvA6Bvl94yDlhjGGk4
+# NTpEyho8iAdfduG6s+W7fJU9ZlcED0OqvCf+Qfm5qGuIwC+ww1liBs0781esjlOm
+# 7CaXfvlN5f9lkJh7kaTXPJmhggKiMIICngYJKoZIhvcNAQkGMYICjzCCAosCAQEw
 # aDBSMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEoMCYG
 # A1UEAxMfR2xvYmFsU2lnbiBUaW1lc3RhbXBpbmcgQ0EgLSBHMgISESHWmadklz7x
 # +EJ+6RnMU0EUMAkGBSsOAwIaBQCggf0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEH
-# ATAcBgkqhkiG9w0BCQUxDxcNMTgwMTE1MTU0NDAxWjAjBgkqhkiG9w0BCQQxFgQU
-# hJIkd2BR1CX3/ezNBjQy2wcjgaMwgZ0GCyqGSIb3DQEJEAIMMYGNMIGKMIGHMIGE
+# ATAcBgkqhkiG9w0BCQUxDxcNMTgwMTE1MTYwMjMzWjAjBgkqhkiG9w0BCQQxFgQU
+# 1VHRZDuWjmR5xVBSx/aURno2e2UwgZ0GCyqGSIb3DQEJEAIMMYGNMIGKMIGHMIGE
 # BBRjuC+rYfWDkJaVBQsAJJxQKTPseTBsMFakVDBSMQswCQYDVQQGEwJCRTEZMBcG
 # A1UEChMQR2xvYmFsU2lnbiBudi1zYTEoMCYGA1UEAxMfR2xvYmFsU2lnbiBUaW1l
 # c3RhbXBpbmcgQ0EgLSBHMgISESHWmadklz7x+EJ+6RnMU0EUMA0GCSqGSIb3DQEB
-# AQUABIIBAAQiEJbBKZTCZrkc5w6hgpFaupGXLUPNhj/PJMEXXJHC6263Imzjwcz2
-# 8oPkC0fx+ZMxLIKQ9gn91Fv5g+STi/IjTkFdUK2bMnMiXe5/JsUfoqCS59ZI1Bol
-# l7jaL0h6miUpUKlD20rllFCvGGTr7mj+zdmkzmeMTE4HNqI6q1Fi4S4ef/gbySrV
-# 697pNrTIi/Bi1rKLSmpjDg+JejKH8n2vDMeWoV2PaaRUcZiqjkl3w0jINAm2PLqf
-# KZdapE68MDyS9/dr8u+/shKUFZZ5wAew72cmlrIplKCKoSPwdDRiNuQfYnmrcoOY
-# OjzkCbHcis590nPWFwxZayt1/Qrfdks=
+# AQUABIIBAItU7O1mj9DPS6Zzeg9h6V2EanySpxVV9ENoxA42pjXfkHfBvILmxmmw
+# l0/otd+sNclQviJHoQuh3t468yvg5uoWPdiQc4L7Dtf/P4glW6XXvc2wc3aeNmOE
+# tXrNqyLH9tZh0vdRxMUzdbl4vT4rgLHGi4dqRa3H8k/nikmphwPst579XS9vHwxa
+# Azof7lupBmph68ck0CC07xL962HHaR5k+6G0hOCubNNgR+8kAioHNoKbQKUa6uNr
+# 4SCrzlWaM64BmeWzRmXYuw2o58VDjLWOPsOUtKDpcPaAZiwtfwYiBwlGmvIzdzs3
+# haQZshLlFuDhvMpx/vc6mdJenlya3g0=
 # SIG # End signature block
