@@ -127,26 +127,6 @@ Try {
 		Show-InstallationProgress
 
 		## <Perform Pre-Installation tasks here>
-		<#
-		$applicationList = 'Equatio'
-		ForEach($installedApplication in $applicationList) {
-			$installedApplicationList = Get-InstalledApplication -Name $installedApplication
-			ForEach($application in $installedApplicationList) {
-				$application
-				if($application.UninstallString) {
-					Write-Log -Message "Uninstall string: $($application.UninstallString)" -Source 'Pre-Installation' -LogType 'CMTrace'
-					Write-Log -Message "Uninstall subkey: $($application.UninstallSubkey)" -Source 'Pre-Installation' -LogType 'CMTrace'
-					## First, we want to check if the program was installed with a package. If it was, then we simply run the MSI uninstaller.
-					if($application.UninstallString.contains("MsiExec.exe") -and ($application.UninstallSubkey)) {
-						Write-Log -Message "Attempting to run uninstaller..." -Source 'Pre-Installation' -LogType 'CMTrace'
-						$exitCode = Execute-Process -Path "MsiExec.exe" -Parameters "/x$($application.UninstallSubkey) /q" -WindowStyle "Hidden"-IgnoreExitCodes '1603' -PassThru
-						If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
-					}
-				}
-			}
-		}
-		#>
-
 
 
 		##*===============================================
@@ -270,8 +250,8 @@ Catch {
 # SIG # Begin signature block
 # MIIU9wYJKoZIhvcNAQcCoIIU6DCCFOQCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUQpeSfdxAdSSFDM4d6oy1Ofa7
-# rTSgghHXMIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUkia75Xwlxixwitozd5aCFrw8
+# 6YqgghHXMIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
 # AQwFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UECAwSR3JlYXRlciBNYW5jaGVzdGVy
 # MRAwDgYDVQQHDAdTYWxmb3JkMRowGAYDVQQKDBFDb21vZG8gQ0EgTGltaXRlZDEh
 # MB8GA1UEAwwYQUFBIENlcnRpZmljYXRlIFNlcnZpY2VzMB4XDTIxMDUyNTAwMDAw
@@ -371,13 +351,13 @@ Catch {
 # ZSBTaWduaW5nIENBIFIzNgIRAKVN33D73PFMVIK48rFyyjEwCQYFKw4DAhoFAKB4
 # MBgGCisGAQQBgjcCAQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQB
 # gjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkE
-# MRYEFC5P7xBHTp1kpvQEQjvSQjl7eW2NMA0GCSqGSIb3DQEBAQUABIIBgKGArAqu
-# bJFpcho4KPt36Whsi/ZY/n04/9ou9uIgnxpsmp+6dR7sfTQFVT1bMnplrjV+8Egw
-# 8GYKA+de+KJzoz8HY5xmnkvGTtixx3+gjic1il0IhvhFKytUO/7HQrKO9hmKZjsC
-# +5tsaYbvRUoDiarTBh/MxD8uw/gNhQTEnC+g46SpRcxKgBHGTh3zQ25D84BoVqwX
-# BUwHUW2Yq7WG4N0u0evYxRkeB+A81IfuC/6lEjAghSyKIcLIcQlEWfua0jStUpTQ
-# nuWkdgOagq1CAM1GXZPqr66Tm5EDrcZMqFAscHGxiqHQFBP+7+RYa7BlIrTLoecq
-# Mbn8lmmE1Yv6soL3KI3UECZl1RgCxmy+w70aUuKHrYuvn4jbPdQcqYQTsz7V0MzH
-# a/yVLvJpLBFuXrOtKLjTUO9MJhnr9L8oAbAYbELQmfGxdGdRkot1dAvur3DBjnkf
-# nvEHpfwWs1tdNmUAiO/UT3rahtIPGH8dEZIlUHiUtgm6jqsqmn/tgle/0g==
+# MRYEFPzAdt4c77h2KMOl/aOetveJBzhEMA0GCSqGSIb3DQEBAQUABIIBgCO/8j8c
+# /3cAfAUEiFMSy5Uej5pq/kQCAjlZtkVTPTRCticRP+50Y+oDFstfrLAVbuvEgj8q
+# fE55D5z+I4qXRxquQYgXnTaoWE6CkBpFlHAoRhNiXH9kINvo0jtVXoIMadiLKdc3
+# UiCOhYB5fmy2tLFr7K8UeVEbbw9eoTkou0z7wNe0EtAtDlz0r5VVldH8EqRe2C5e
+# oGDH7phZfFaDxTQWH/TFPBNt584d/t5jSKZIQ0NvmvfiYxu3wvz2EtDhoNEKlaYe
+# gAWQoxu/00QMgnGsjc6YZcscUqq8UYtKDisb//TZT7QgDY6TYwSxEnmxmPZVbl6Z
+# YkS8PN1IzoopF/wm3/YZaLJQOLVi27zasrkKu1z0f5jTSxbUIPRE3A0UuflLQF80
+# VYVUNKwLw+hQw4EtnQ5TWwJczsOuSqH9o8ZKkWfUqXKOiDg1NkZqfGbeVZDGW23+
+# Zw7VX3uWwWYrg8IS4hd5Sj4bzqnhM9fNbqsgmXKQd8/3iLunvQE11HZZUw==
 # SIG # End signature block
